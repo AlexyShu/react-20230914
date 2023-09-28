@@ -1,18 +1,14 @@
 import {restaurants} from '../../constants/mocks.js';
-import {Button} from '../../components/Button/component.jsx';
 import {useState} from 'react';
-import {Card} from '../../components/Card/component.jsx';
+import {Restaurant} from '../../components/Restaurant/component.jsx';
+import {Tabs} from '../../components/Tabs/component.jsx'
 
 export const MainPage = () => {
-    const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0].name);
+    const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
 
     return (
         <div>
-            <div>
-                { restaurants.map(({ name }) => <Button text={name} onClick={() => setActiveRestaurant(name)} disabled={false} />) }
-            </div>
-            <div>
-                { restaurants.map(restaurant => <Card activeRestaurant={activeRestaurant} restaurant={restaurant} />) }
-            </div>
+            <Tabs restaurants={restaurants} setActiveRestaurant={setActiveRestaurant} />
+            <Restaurant restaurant={restaurants.find(restaurant => restaurant.id === activeRestaurantId )} />
         </div>)
 }
