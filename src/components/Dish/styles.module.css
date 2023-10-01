@@ -1,0 +1,10 @@
+.item {
+    display: flex;
+    margin-bottom: 10px;
+}
+.itemName {
+    margin-right: 10px;
+}
+.amount {
+    margin: 0 4px;
+}
