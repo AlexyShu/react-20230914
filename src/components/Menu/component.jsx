@@ -1,9 +1,10 @@
 import {MenuItem} from '../MenuItem/component.jsx';
+import styles from './styles.module.css';
 
 export const Menu = ({menu}) => {
     return (
-        <ul>
-            { menu.map(({ name }) => <MenuItem name={name} />) }
+        <ul className={styles.menu}>
+            { menu.map(({ name, id }) => <MenuItem key={id} name={name} />) }
         </ul>
     )
 }
