@@ -6,8 +6,8 @@ export const Dish = ({name}) => {
     const [amount, setAmount] = useState(0);
 
     return (
-        <li className={styles.item}>
-            <div className={styles.itemName}>{name}</div>
+        <li className={styles.dish}>
+            <div className={styles.dishName}>{name}</div>
             <Button
                 text={'-'}
                 onClick={() => setAmount(amount - 1)}

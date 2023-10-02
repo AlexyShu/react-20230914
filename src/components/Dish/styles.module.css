@@ -1,8 +1,8 @@
-.item {
+.dish {
     display: flex;
     margin-bottom: 10px;
 }
-.itemName {
+.dishName {
     margin-right: 10px;
 }
 .amount {
