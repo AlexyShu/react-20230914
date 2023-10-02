@@ -1,7 +1,7 @@
 import {Button} from '../Button/component.jsx';
 import {useState} from 'react';
 
-export const MenuItem = ({name}) => {
+export const Dish = ({name}) => {
     const [amount, setAmount] = useState(0);
 
     return (

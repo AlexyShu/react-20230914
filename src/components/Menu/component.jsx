@@ -1,9 +1,9 @@
-import {MenuItem} from '../MenuItem/component.jsx';
+import {Dish} from '../Dish/component.jsx';
 
 export const Menu = ({menu}) => {
     return (
         <ul>
-            { menu.map(({ name }) => <MenuItem name={name} />) }
+            { menu.map(({ name }) => <Dish name={name} />) }
         </ul>
     )
 }
