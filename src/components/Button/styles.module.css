@@ -23,6 +23,20 @@
     padding: 0;
     cursor: pointer;
 }
+.bigBtn {
+    height: 40px;
+    width: 180px;
+    border-radius: 10px;
+    border: 1px solid #454648;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    background: #454648;
+    color: #fafafa;
+    font-weight: bold;
+    margin-top: 10px;
+}
 .active {
     background: #454648;
     color: #fafafa;
@@ -32,4 +46,7 @@
 }
 .text {
     margin: 0 auto;
+}
+.rainbow {
+    background-image: linear-gradient(145deg, #ee82ee, slateblue, #ffd86a, purple);
 }

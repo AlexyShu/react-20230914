@@ -17,6 +17,9 @@ ul {
 header {
     position: sticky;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 footer {
     margin-top: auto;
