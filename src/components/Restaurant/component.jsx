@@ -1,6 +1,7 @@
 import {Menu} from '../Menu/component.jsx';
 import {Reviews} from '../Reviews/component.jsx';
 import styles from './styles.module.css';
+import {AuthorizationForm} from '../AuthorizationForm/component.jsx';
 
 export const Restaurant = ({restaurant}) => {
     return (
@@ -10,6 +11,7 @@ export const Restaurant = ({restaurant}) => {
             <Menu menu={restaurant.menu} />
             <h5>Отзывы:</h5>
             <Reviews reviews={restaurant.reviews} />
+            <AuthorizationForm />
         </div>
     )
 }
