@@ -1,7 +1,6 @@
-import {useContext, useReducer} from 'react';
+import {useReducer} from 'react';
 import styles from './styles.module.css';
 import {Button} from '../Button/component.jsx';
-import {ButtonsContext} from '../../contexts/ButtonsColor.jsx';
 
 const DEFAULT_VALUE = {
     name: '',
@@ -24,13 +23,15 @@ const reducer = (state, action) => {
     }
 };
 
-export const AuthorizationForm = () => {
+export const ReviewForm = ({setIsModalOpen}) => {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_VALUE);
-    const { color } = useContext(ButtonsContext);
 
     return (
         <form onSubmit={() => dispatch({ type: 'reset' })} className={styles.form}>
-            <h4 className={styles.title}>Оставьте отзыв:</h4>
+            <div className={styles.titleWrap}>
+                <h4 className={styles.title}>Оставьте отзыв:</h4>
+                <button className={styles.closeBtn} type="button"  onClick={() => setIsModalOpen(false)}>close</button>
+            </div>
             <label className={styles.field}>Имя:</label>
             <input
                 className={styles.input}
@@ -63,7 +64,6 @@ export const AuthorizationForm = () => {
                 text={'Сохранить'}
                 styleName="bigBtn"
                 disabled={false}
-                theme={color}
             />
         </form>
     )

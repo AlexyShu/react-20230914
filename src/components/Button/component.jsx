@@ -1,7 +1,11 @@
 import classNames from 'classnames';
 import styles from './styles.module.css';
+import {useContext} from 'react';
+import {ButtonsContext} from '../../contexts/ButtonsColor.jsx';
 
-export const Button = ({ text, onClick, disabled, styleName, active, type, theme }) => {
+export const Button = ({ text, onClick, disabled, styleName, active, type }) => {
+    const { color } = useContext(ButtonsContext);
+
     return (
         <button
             type={type}
@@ -12,7 +16,7 @@ export const Button = ({ text, onClick, disabled, styleName, active, type, theme
                 [styles.active]: active && styleName === 'tab',
                 [styles.notActive]: !active && styleName === 'tab',
                 [styles.bigBtn]: styleName === 'bigBtn',
-                [styles.rainbow]: theme === 'rainbow'}
+                [styles.rainbow]: color === 'rainbow'}
                 )}
             disabled={disabled}
         >

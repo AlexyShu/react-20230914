@@ -13,6 +13,7 @@ root.render(
     <ButtonsColorProvider>
         <Header />
         <MainPage />
+        <div id="modal" />
         <Footer />
     </ButtonsColorProvider>
 );
