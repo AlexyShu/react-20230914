@@ -6,7 +6,7 @@ export const Dish = ({name}) => {
     const [amount, setAmount] = useState(0);
 
     return (
-        <li className={styles.dish}>
+        <div className="dish">
             <div className={styles.dishName}>{name}</div>
             <Button
                 text={'-'}
@@ -21,6 +21,6 @@ export const Dish = ({name}) => {
                 styleName="btn"
                 disabled={amount >= 5}
             />
-        </li>
+        </div>
     )
 }

@@ -8,6 +8,7 @@ export const Button = ({ text, onClick, disabled, styleName, active }) => {
             onClick={onClick}
             className={classNames(
                 styles[styleName],
+                styleName,
                 {[styles.disabled]: disabled,
                 [styles.active]: active && styleName === 'tab',
                 [styles.notActive]: !active && styleName === 'tab'}

@@ -14,10 +14,12 @@ ul {
     flex-direction: column;
     height: 100%;
 }
-header {
-    position: sticky;
-    margin-bottom: 20px;
+.tab {
+    height: 40px;
+    width: 140px;
+    margin-right: 4px;
 }
-footer {
-    margin-top: auto;
+.dish {
+    display: flex;
+    margin-bottom: 10px;
 }

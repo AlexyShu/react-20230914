@@ -1,3 +1,10 @@
 .wrapper {
     padding: 0 10px;
 }
+header {
+    position: sticky;
+    margin-bottom: 20px;
+}
+footer {
+    margin-top: auto;
+}
