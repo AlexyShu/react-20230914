@@ -1,10 +1,7 @@
 import {Button} from '../Button/component.jsx';
-import {useContext} from 'react';
-import {ButtonsContext} from '../../contexts/ButtonsColor.jsx';
 import styles from './styles.module.css';
 
 export const Tabs = ({restaurants, setActiveRestaurant, activeRestaurantId}) => {
-    const { color } = useContext(ButtonsContext);
 
     return(
         <div>
@@ -19,7 +16,6 @@ export const Tabs = ({restaurants, setActiveRestaurant, activeRestaurantId}) => 
                     size="m"
                     styleName="tab"
                     className={styles.tab}
-                    theme={color}
                 />
             )}
         </div>)

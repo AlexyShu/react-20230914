@@ -24,7 +24,6 @@ export const Header = ({className}) => {
                 type={'button'}
                 styleName="bigBtn"
                 disabled={false}
-                theme={color}
             />
         </header>
     )
