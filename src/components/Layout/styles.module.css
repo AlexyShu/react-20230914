@@ -6,6 +6,9 @@
     padding: 0 10px;
 }
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: sticky;
     margin-bottom: 20px;
 }
