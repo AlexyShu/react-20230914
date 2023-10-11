@@ -1,4 +1,5 @@
 import {Button} from '../Button/component.jsx';
+import styles from './styles.module.css';
 
 export const Tabs = ({restaurants, setActiveRestaurant, activeRestaurantId}) => {
     return(
@@ -8,9 +9,11 @@ export const Tabs = ({restaurants, setActiveRestaurant, activeRestaurantId}) => 
                     key={id}
                     text={name}
                     onClick={() => setActiveRestaurant(id)}
-                    styleName="tab"
                     disabled={false}
                     active={id === activeRestaurantId ?? null}
+                    size="m"
+                    styleName="tab"
+                    className={styles.tab}
                 />
             )}
         </div>)

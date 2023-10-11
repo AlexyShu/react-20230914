@@ -1,3 +1,11 @@
+.s {
+    height: 20px;
+    width: 20px;
+}
+.m {
+    height: 40px;
+    width: 140px;
+}
 .tab {
     border: none;
     border-radius: 10px;
@@ -5,14 +13,7 @@
     font-weight: bold;
     cursor: pointer;
 }
-.disabled {
-    border: 1px solid #bcbdbf !important;
-    color: #bcbdbf;
-    cursor: not-allowed !important;
-}
-.btn {
-    height: 20px;
-    width: 20px;
+.roundBtn {
     border-radius: 100%;
     border: 1px solid #454648;
     display: flex;
@@ -26,6 +27,11 @@
 }
 .notActive {
     background: #d0d0d0;
+}
+.disabled {
+    border: 1px solid #bcbdbf !important;
+    color: #bcbdbf;
+    cursor: not-allowed !important;
 }
 .text {
     margin: 0 auto;

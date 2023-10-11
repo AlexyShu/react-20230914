@@ -14,12 +14,3 @@ ul {
     flex-direction: column;
     height: 100%;
 }
-.tab {
-    height: 40px;
-    width: 140px;
-    margin-right: 4px;
-}
-.dish {
-    display: flex;
-    margin-bottom: 10px;
-}

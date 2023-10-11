@@ -1,7 +1,8 @@
+import classNames from 'classnames';
 import styles from './styles.module.css';
 
-export const Header = () => {
+export const Header = ({className}) => {
     return (
-        <header className={styles.header}>My react project</header>
+        <header className={classNames(className, styles.header)}>My react project</header>
     )
 }
