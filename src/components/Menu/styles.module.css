@@ -1,0 +1,10 @@
+.menu {
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    width: 300px;
+}
+.dish {
+    display: flex;
+    margin-bottom: 10px;
+}

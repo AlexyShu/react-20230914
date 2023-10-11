@@ -1,0 +1,14 @@
+.layout {
+    height: 100%;
+}
+.contentWrapper {
+    height: 100%;
+    padding: 0 10px;
+}
+.header {
+    position: sticky;
+    margin-bottom: 20px;
+}
+.footer {
+    margin-top: auto;
+}
