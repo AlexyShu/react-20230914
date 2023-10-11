@@ -1,7 +1,6 @@
-import {Button} from '../Button/component.jsx';
-import {useContext, useState} from 'react';
-import styles from './styles.module.css'
 import {useState} from 'react';
+import {Button} from '../Button/component.jsx';
+import styles from './styles.module.css'
 
 export const Dish = ({name, className}) => {
     const [amount, setAmount] = useState(0);

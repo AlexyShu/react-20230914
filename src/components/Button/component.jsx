@@ -3,11 +3,9 @@ import styles from './styles.module.css';
 import {useContext} from 'react';
 import {ButtonsContext} from '../../contexts/ButtonsColor.jsx';
 
-export const Button = ({ text, onClick, disabled, styleName, active, type }) => {
-    const { color } = useContext(ButtonsContext);
-
 export const Button = ({
       text,
+      type,
       onClick,
       disabled,
       styleName,
@@ -15,11 +13,14 @@ export const Button = ({
       size='m',
       className
     }) => {
+    const { color } = useContext(ButtonsContext);
+
     return (
         <button
             type={type}
             onClick={onClick}
             className={classNames(
+                className,
                 styles[size],
                 styles[styleName],
                 className,
