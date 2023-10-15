@@ -7,7 +7,7 @@ export const Reviews = ({reviewIds}) => {
 
     return (<ul className={styles.list}>
         { reviewIds.map((id) =>
-            <li key={reviews[id]}>
+            <li key={id}>
                 <span className={styles.user}>{users[reviews[id].userId].name} : </span>
                 <span>{reviews[id].text}</span>
             </li>)
