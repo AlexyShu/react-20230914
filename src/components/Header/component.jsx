@@ -1,13 +1,14 @@
 import classNames from 'classnames';
-import styles from './styles.module.css';
 import {useContext} from 'react';
 import {ButtonsContext} from '../../contexts/ButtonsColor.jsx';
 import {Button} from '../Button/component.jsx';
+import styles from './styles.module.css';
+
 
 export const Header = ({className}) => {
     const { color, setColor } = useContext(ButtonsContext);
 
-    const changeBtnsStyle = () => {
+    const changeBtnsTheme = () => {
         if(color === 'default') {
             setColor('rainbow')
         } else {
@@ -19,10 +20,11 @@ export const Header = ({className}) => {
         <header className={classNames(className, styles.header)}>
             <span>My react project</span>
             <Button
-                onClick={changeBtnsStyle}
+                onClick={changeBtnsTheme}
                 text={'Поменять цвет кнопок'}
                 type={'button'}
-                styleName="bigBtn"
+                size="l"
+                styleName="defaultBtn"
                 disabled={false}
             />
         </header>

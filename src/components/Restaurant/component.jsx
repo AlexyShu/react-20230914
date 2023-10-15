@@ -1,10 +1,10 @@
+import {useState} from 'react';
+import {createPortal} from 'react-dom';
 import {Menu} from '../Menu/component.jsx';
 import {Reviews} from '../Reviews/component.jsx';
-import styles from './styles.module.css';
 import {ReviewForm} from '../ReviewForm/component.jsx';
 import {Button} from '../Button/component.jsx';
-import {createPortal} from 'react-dom';
-import {useState} from 'react';
+import styles from './styles.module.css';
 
 export const Restaurant = ({restaurant}) => {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,7 +19,8 @@ export const Restaurant = ({restaurant}) => {
             <Button
                 type={'button'}
                 text={'Оставить отзыв'}
-                styleName="bigBtn"
+                styleName="defaultBtn"
+                size="l"
                 disabled={false}
                 onClick={() => setIsModalOpen(true)}
             />

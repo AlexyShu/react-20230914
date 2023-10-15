@@ -1,6 +1,6 @@
 import {useReducer} from 'react';
-import styles from './styles.module.css';
 import {Button} from '../Button/component.jsx';
+import styles from './styles.module.css';
 
 const DEFAULT_VALUE = {
     name: '',
@@ -62,7 +62,8 @@ export const ReviewForm = ({setIsModalOpen}) => {
             <Button
                 type={'submit'}
                 text={'Сохранить'}
-                styleName="bigBtn"
+                styleName="defaultBtn"
+                size="l"
                 disabled={false}
             />
         </form>
