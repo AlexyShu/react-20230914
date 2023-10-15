@@ -7,7 +7,7 @@ import {Button} from '../Button/component.jsx';
 import styles from './styles.module.css';
 
 export const Restaurant = ({restaurant}) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div>
@@ -15,7 +15,7 @@ export const Restaurant = ({restaurant}) => {
             <h4>Меню:</h4>
             <Menu menu={restaurant.menu} />
             <h5>Отзывы:</h5>
-            <Reviews reviews={restaurant.reviews} />
+            <Reviews reviewIds={restaurant.reviews} />
             <Button
                 type={'button'}
                 text={'Оставить отзыв'}

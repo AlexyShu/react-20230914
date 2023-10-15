@@ -5,7 +5,7 @@ export const Tabs = ({restaurants, setActiveRestaurant, activeRestaurantId}) => 
 
     return(
         <div>
-            { restaurants.map(({ name, id }) =>
+            { Object.values(restaurants).map(({ name, id }) =>
                 <Button
                     key={id}
                     type="button"
