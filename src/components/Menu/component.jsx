@@ -1,6 +1,6 @@
-import {Dish} from '../Dish/component.jsx';
-import styles from './styles.module.css';
 import {useSelector} from 'react-redux';
+import {DishContainer} from '../Dish/container.jsx';
+import styles from './styles.module.css';
 
 export const Menu = ({menu}) => {
     const dishes = useSelector(state => state.dish.entities);
@@ -9,7 +9,7 @@ export const Menu = ({menu}) => {
         <ul className={styles.menu}>
             { menu.map((id) =>
                 <li key={dishes[id].id}>
-                    <Dish name={dishes[id].name} className={styles.dish} />
+                    <DishContainer dishId={id} className={styles.dish} />
                 </li>) }
         </ul>
     )

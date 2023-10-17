@@ -9,7 +9,7 @@ const initialState = {
     ids: normalizedRestaurants.map((restaurant) => restaurant.id),
 };
 
-const {reducer} = createSlice({
+const { reducer } = createSlice({
     name: 'restaurant',
     initialState,
 });
