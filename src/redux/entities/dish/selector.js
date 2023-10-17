@@ -4,3 +4,5 @@ export const selectDishById = (state, id) =>
     selectDishModule(state).entities[id];
 
 export const selectDishIds = (state) => selectDishModule(state).ids;
+
+export const selectDishLoadingStatus = (state) => selectDishModule(state).status;
