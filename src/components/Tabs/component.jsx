@@ -1,22 +1,15 @@
-import {Button} from '../Button/component.jsx';
-import styles from './styles.module.css';
+import {Tab} from '../Tab/component.jsx';
 
-export const Tabs = ({restaurants, setActiveRestaurant, activeRestaurantId}) => {
+export const Tabs = ({
+        activeRestaurantId,
+        setActiveRestaurant,
+        restaurantIds,
+    }) => {
 
     return(
         <div>
-            { restaurants.map(({ name, id }) =>
-                <Button
-                    key={id}
-                    type="button"
-                    text={name}
-                    onClick={() => setActiveRestaurant(id)}
-                    disabled={false}
-                    active={id === activeRestaurantId ?? null}
-                    size="m"
-                    styleName="tab"
-                    className={styles.tab}
-                />
+            { restaurantIds.map((id) =>
+                <Tab key={id} id={id} setActiveRestaurant={setActiveRestaurant} activeRestaurantId={activeRestaurantId} />
             )}
         </div>)
 }

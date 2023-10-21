@@ -1,15 +1,21 @@
-import {restaurants} from '../../constants/mocks.js';
 import {useState} from 'react';
-import {Restaurant} from '../../components/Restaurant/component.jsx';
-import {Tabs} from '../../components/Tabs/component.jsx'
+import {useSelector} from 'react-redux';
+import {RestaurantContainer} from '../../components/Restaurant/container.jsx';
 import {Layout} from '../../components/Layout/component.jsx';
+import {TabsContainer} from '../../components/Tabs/container.jsx';
+import {selectRestaurantIds} from '../../redux/entities/restaurant/selectors.js';
 
 export const MainPage = () => {
-    const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
+    const restaurantIds = useSelector((state) =>
+        selectRestaurantIds(state)
+    );
+    const [activeRestaurantId, setActiveRestaurant] = useState(restaurantIds[0]);
 
     return (
         <Layout>
-            <Tabs restaurants={restaurants} setActiveRestaurant={setActiveRestaurant} activeRestaurantId={activeRestaurantId}/>
-            <Restaurant restaurant={restaurants.find(restaurant => restaurant.id === activeRestaurantId )} />
+            <TabsContainer setActiveRestaurant={setActiveRestaurant} activeRestaurantId={activeRestaurantId}/>
+            {activeRestaurantId && (
+                <RestaurantContainer restaurantId={activeRestaurantId} />
+            )}
         </Layout>)
 }
