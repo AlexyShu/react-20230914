@@ -1,6 +1,9 @@
 export const REQUEST_STATUS = {
     idle: 'idle',
-    pending: 'pending',
     fulfilled: 'fulfilled',
+    loading: 'loading',
+    finished: 'finished',
+    failed: 'failed',
+    pending: 'pending',
     rejected: 'rejected',
 };

@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux';
 import { User } from './component';
 import {useEffect} from 'react';
-import {selectUserById, selectUserLoadingStatus} from '../../redux/entities/user/selector';
+import {selectUserById, selectUserLoadingStatus} from '../../redux/entities/user/selectors.js';
 import {getUsers} from '../../redux/entities/user/thunks/get-users.js';
 import {REQUEST_STATUS} from '../../constants/statuses.js';
 

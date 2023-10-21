@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
-import {selectReviewById, selectReviewLoadingStatus} from '../../redux/entities/review/selector';
+import {selectReviewById, selectReviewLoadingStatus} from '../../redux/entities/review/selectors.js';
 import { Review} from './component.jsx';
 import {getReviews} from '../../redux/entities/review/thunks/get-reviews.js';
 import {REQUEST_STATUS} from '../../constants/statuses.js';
