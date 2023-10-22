@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {RestaurantContainer} from '../../components/Restaurant/container.jsx';
 import {Layout} from '../../components/Layout/component.jsx';
 import {TabsContainer} from '../../components/Tabs/container.jsx';
-import {useDispatch} from 'react-redux';
 import {getRestaurants} from '../../redux/entities/restaurant/thunks/get-restaurants.js';
 
 export const MainPage = () => {

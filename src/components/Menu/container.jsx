@@ -1,16 +1,19 @@
-import {Menu} from './component.jsx';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {selectRestaurantMenuById} from '../../redux/entities/restaurant/selectors.js';
-import {useEffect} from 'react';
 import {getDishes} from '../../redux/entities/dish/thunks/get-dish.js';
+import {useRequest} from '../../hooks/use-request.js';
+import {REQUEST_STATUS} from '../../constants/statuses.js';
+import {Menu} from './component.jsx';
 
 export const MenuContainer = ({restaurantId}) => {
-    const dispatch = useDispatch();
     const menu = useSelector(state => selectRestaurantMenuById(state, restaurantId));
+    const dishesLoadingStatus = useRequest(getDishes, restaurantId);
 
-    useEffect(() => {
-        dispatch(getDishes(restaurantId));
-    }, [restaurantId]);
+    if (
+        dishesLoadingStatus === REQUEST_STATUS.loading
+    ) {
+        return <div>Loading...</div>;
+    }
 
     return <Menu menu={menu} />
 }
