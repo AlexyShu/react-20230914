@@ -9,7 +9,7 @@ import {useRequest} from '../../hooks/use-request.js';
 export const ReviewsContainer = ({restaurantId}) => {
     const reviews = useSelector((state) => selectRestaurantReviewsById(state, restaurantId));
     const reviewsLoadingStatus = useRequest(getReviews, restaurantId);
-    const usersLoadingStatus = useRequest(getUsers, restaurantId);
+    const usersLoadingStatus = useRequest(getUsers);
 
     if (
         reviewsLoadingStatus === REQUEST_STATUS.loading ||
