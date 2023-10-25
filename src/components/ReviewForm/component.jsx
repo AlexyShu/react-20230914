@@ -1,17 +1,17 @@
 import {useReducer} from 'react';
 import {Button} from '../Button/component.jsx';
 import styles from './styles.module.css';
+import {useDispatch} from 'react-redux';
+import {createReview} from '../../redux/entities/review/thunks/create-review.js';
 
 const DEFAULT_VALUE = {
-    name: '',
+    userId: 'a304959a-76c0-4b34-954a-b38dbf310360',
     text: '',
     rating: 0,
 };
 
 const reducer = (state, action) => {
     switch (action?.type) {
-        case 'setName':
-            return { ...state, name: action.payload };
         case 'setText':
             return { ...state, text: action.payload };
         case 'setRating':
@@ -23,24 +23,27 @@ const reducer = (state, action) => {
     }
 };
 
-export const ReviewForm = ({setIsModalOpen}) => {
+export const ReviewForm = ({setIsModalOpen, restaurantId}) => {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_VALUE);
+    const dispatchCreateReview = useDispatch();
+
+    const onSubmit = () => {
+        dispatchCreateReview(createReview({restaurantId, newReview: formValue}));
+    }
 
     return (
-        <form onSubmit={() => dispatch({ type: 'reset' })} className={styles.form}>
+        <form onSubmit={(event) => {
+                event.preventDefault();
+                onSubmit();
+                dispatch({type: 'reset'});
+                setIsModalOpen(false)
+             }}
+             className={styles.form}
+        >
             <div className={styles.titleWrap}>
                 <h4 className={styles.title}>Оставьте отзыв:</h4>
                 <button className={styles.closeBtn} type="button"  onClick={() => setIsModalOpen(false)}>close</button>
             </div>
-            <label className={styles.field}>Имя:</label>
-            <input
-                className={styles.input}
-                type={'text'}
-                value={formValue.name}
-                onChange={(event) =>
-                    dispatch({type: 'setName', payload: event.target.value})
-                }
-            />
             <label className={styles.field}>Текст:</label>
             <input
                 className={styles.input}

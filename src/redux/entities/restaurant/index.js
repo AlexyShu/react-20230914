@@ -3,9 +3,19 @@ import {getRestaurants} from './thunks/get-restaurants.js';
 
 const entityAdapter = createEntityAdapter();
 
-const { reducer } = createSlice({
+const { reducer, actions } = createSlice({
     name: 'restaurant',
     initialState: entityAdapter.getInitialState(),
+    reducers: {
+        addReview: (state, { payload: { restaurantId, reviewId } }) => {
+            entityAdapter.updateOne(state, {
+                id: restaurantId,
+                changes: {
+                    reviews: [...state.entities[restaurantId].reviews, reviewId],
+                },
+            });
+        },
+    },
     extraReducers: (builder) =>
         builder
             .addCase(getRestaurants.fulfilled, (state, { payload }) => {
@@ -14,3 +24,4 @@ const { reducer } = createSlice({
 });
 
 export default reducer;
+export { actions as restaurantActions };
