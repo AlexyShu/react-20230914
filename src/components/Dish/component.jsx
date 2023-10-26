@@ -1,9 +1,14 @@
-import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {Button} from '../Button/component.jsx';
+import {cartActions} from '../../redux/ui/cart/index.js';
+import {selectDishAmountById} from '../../redux/ui/cart/selectors.js';
 import styles from './styles.module.css'
 
 export const Dish = ({dish, className}) => {
-    const [amount, setAmount] = useState(0);
+    const dispatch = useDispatch();
+    const amount = useSelector((state) =>
+        selectDishAmountById(state, dish.id)
+    );
 
     return (
         <div className={className}>
@@ -11,7 +16,7 @@ export const Dish = ({dish, className}) => {
             <Button
                 text={'-'}
                 type={'button'}
-                onClick={() => setAmount(amount - 1)}
+                onClick={() => dispatch(cartActions.decrement(dish.id))}
                 styleName="roundBtn"
                 disabled={amount <= 0}
                 size="s"
@@ -20,7 +25,7 @@ export const Dish = ({dish, className}) => {
             <Button
                 text={'+'}
                 type={'button'}
-                onClick={() => setAmount(amount + 1)}
+                onClick={() => dispatch(cartActions.increment(dish.id))}
                 styleName="roundBtn"
                 disabled={amount >= 5}
                 size="s"

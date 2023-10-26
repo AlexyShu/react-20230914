@@ -24,7 +24,7 @@ export const Restaurant = ({restaurant}) => {
                 disabled={false}
                 onClick={() => setIsModalOpen(true)}
             />
-            { isModalOpen && createPortal( <ReviewForm setIsModalOpen={setIsModalOpen} />, document.getElementById('modal'))}
+            { isModalOpen && createPortal( <ReviewForm setIsModalOpen={setIsModalOpen} restaurantId={restaurant.id} />, document.getElementById('modal'))}
         </div>
     )
 }
