@@ -11,5 +11,5 @@ export const RestaurantContainer = ({restaurantId}) => {
         return null;
     }
 
-    return <Restaurant restaurant={restaurant} />;
+    return <Restaurant restaurant={restaurant} />
 }

@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-import { selectReviewById } from '../../redux/entities/review/selector';
+import {useSelector} from 'react-redux';
+import {selectReviewById} from '../../redux/entities/review/selectors.js';
 import { Review} from './component.jsx';
 
 export const ReviewContainer = ({ reviewId }) => {
@@ -10,5 +10,5 @@ export const ReviewContainer = ({ reviewId }) => {
         return null;
     }
 
-    return <Review review={review} />;
+    return <Review review={review}/>
 };

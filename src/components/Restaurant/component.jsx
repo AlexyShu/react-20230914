@@ -1,10 +1,10 @@
 import {useState} from 'react';
 import {createPortal} from 'react-dom';
-import {Menu} from '../Menu/component.jsx';
-import {Reviews} from '../Reviews/component.jsx';
 import {ReviewForm} from '../ReviewForm/component.jsx';
 import {Button} from '../Button/component.jsx';
 import styles from './styles.module.css';
+import {MenuContainer} from '../Menu/container.jsx';
+import {ReviewsContainer} from '../Reviews/container.jsx';
 
 export const Restaurant = ({restaurant}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,9 +13,9 @@ export const Restaurant = ({restaurant}) => {
         <div>
             <h3 className={styles.restaurantName}>{restaurant.name}</h3>
             <h4>Меню:</h4>
-            <Menu menu={restaurant.menu} />
+            <MenuContainer restaurantId={restaurant.id} />
             <h5>Отзывы:</h5>
-            <Reviews reviewIds={restaurant.reviews} />
+            <ReviewsContainer restaurantId={restaurant.id} />
             <Button
                 type={'button'}
                 text={'Оставить отзыв'}

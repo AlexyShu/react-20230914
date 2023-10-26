@@ -1,8 +1,13 @@
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import { User } from './component';
-import { selectUserById } from '../../redux/entities/user/selector';
+import {selectUserById} from '../../redux/entities/user/selectors.js';
 
 export const UserContainer = ({ userId }) => {
     const user = useSelector((state) => selectUserById(state, userId));
-    return <User user={user} />;
+
+    if (!user) {
+        return null;
+    }
+
+    return <User user={user}/>
 };

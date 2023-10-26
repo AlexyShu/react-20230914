@@ -1,21 +1,24 @@
-import {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {RestaurantContainer} from '../../components/Restaurant/container.jsx';
 import {Layout} from '../../components/Layout/component.jsx';
 import {TabsContainer} from '../../components/Tabs/container.jsx';
-import {selectRestaurantIds} from '../../redux/entities/restaurant/selectors.js';
+import {getRestaurants} from '../../redux/entities/restaurant/thunks/get-restaurants.js';
 
 export const MainPage = () => {
-    const restaurantIds = useSelector((state) =>
-        selectRestaurantIds(state)
-    );
-    const [activeRestaurantId, setActiveRestaurant] = useState(restaurantIds[0]);
+    const dispatch = useDispatch();
+    const [activeRestaurantId, setActiveRestaurant] = useState();
+
+    useEffect( () => {
+        dispatch((getRestaurants()));
+    }, []);
 
     return (
         <Layout>
             <TabsContainer setActiveRestaurant={setActiveRestaurant} activeRestaurantId={activeRestaurantId}/>
-            {activeRestaurantId && (
+            {activeRestaurantId ?
                 <RestaurantContainer restaurantId={activeRestaurantId} />
-            )}
+                : <div>Нажмите на название ресторана, для выбора.</div>
+                }
         </Layout>)
 }
