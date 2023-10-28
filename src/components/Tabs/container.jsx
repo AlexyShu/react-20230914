@@ -8,6 +8,6 @@ export const TabsContainer = (props) => {
         <>
             {isFetching ?
                 <div>Loading</div> :
-                <Tabs {...props} restaurantIds={data?.map(restaurant => restaurant.id)} />}
+                <Tabs {...props} restaurants={data} />}
         </>)
 };
