@@ -1,11 +1,11 @@
-import {ReviewContainer} from '../Review/container.jsx';
+import {Review} from '../Review/component.jsx';
 import styles from './styles.module.css'
 
-export const Reviews = ({reviewIds}) => {
+export const Reviews = ({reviews}) => {
     return (<ul className={styles.list}>
-        { reviewIds.map((id) =>
-            <li key={id}>
-                <ReviewContainer reviewId={id} />
+        { reviews.map((review) =>
+            <li key={review.id}>
+                <Review review={review} />
             </li>)
         }
     </ul>)

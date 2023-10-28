@@ -1,8 +1,7 @@
 import {useReducer} from 'react';
 import {Button} from '../Button/component.jsx';
+import {useCreateReviewMutation} from '../../redux/services/api.js';
 import styles from './styles.module.css';
-import {useDispatch} from 'react-redux';
-import {createReview} from '../../redux/entities/review/thunks/create-review.js';
 
 const DEFAULT_VALUE = {
     userId: 'a304959a-76c0-4b34-954a-b38dbf310360',
@@ -25,10 +24,13 @@ const reducer = (state, action) => {
 
 export const ReviewForm = ({setIsModalOpen, restaurantId}) => {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_VALUE);
-    const dispatchCreateReview = useDispatch();
+    const [createReview ] = useCreateReviewMutation();
 
     const onSubmit = () => {
-        dispatchCreateReview(createReview({restaurantId, newReview: formValue}));
+        createReview({
+            restaurantId,
+            newReview: formValue,
+        });
     }
 
     return (

@@ -1,15 +1,13 @@
-import { useSelector} from 'react-redux';
-import {selectRestaurantIds} from '../../redux/entities/restaurant/selectors.js';
 import {Tabs} from './component.jsx';
-import {useRestaurantsQuery} from '../../redux/services/api.js';
-
-
+import {useGetRestaurantsQuery} from '../../redux/services/api.js';
 
 export const TabsContainer = (props) => {
-    // --thunks--
-    const restaurantIds = useSelector(selectRestaurantIds);
+   const { data, isFetching  } = useGetRestaurantsQuery();
 
-   // const { data, isFetching } = useRestaurantsQuery();
-
-    return <Tabs {...props} restaurantIds={restaurantIds} />
+    return (
+        <>
+            {isFetching ?
+                <div>Loading</div> :
+                <Tabs {...props} restaurantIds={data?.map(restaurant => restaurant.id)} />}
+        </>)
 };
