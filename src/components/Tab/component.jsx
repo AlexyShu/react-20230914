@@ -1,22 +1,21 @@
-import {useSelector} from 'react-redux';
+import {Link, useParams} from 'react-router-dom';
 import {Button} from '../Button/component.jsx';
-import { selectRestaurantById} from '../../redux/entities/restaurant/selectors.js';
 import styles from './styles.module.css';
 
-export const Tab = ({id, setActiveRestaurant, activeRestaurantId}) => {
-    const restaurant = useSelector((state) =>
-        selectRestaurantById(state, id)
-    );
+export const Tab = ({restaurant}) => {
+    const {restaurantId} = useParams();
+    let activeRestaurantId = restaurantId ?? 'a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2';
 
     return(
-        <Button
-            type="button"
-            text={restaurant.name}
-            onClick={() => setActiveRestaurant(id)}
-            disabled={false}
-            active={id === activeRestaurantId ?? null}
-            size="m"
-            styleName="tab"
-            className={styles.tab}
-        />)
+        <Link to={restaurant.id}>
+            <Button
+                type="button"
+                text={restaurant.name}
+                disabled={false}
+                active={restaurant.id === activeRestaurantId ? restaurant.id : null}
+                size="m"
+                styleName="tab"
+                className={styles.tab}
+            />
+        </Link>)
 }
